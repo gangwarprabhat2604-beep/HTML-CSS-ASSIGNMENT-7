@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Photo Gallery - Grid</title>
+<style>
+* { box-sizing: border-box; font-family: arial; }
+body { padding: 20px; background: white; }
+h1 { text-align: center; color: #333; margin-bottom: 20px; }
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+}
+.gallery img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+</style>
+</head>
+<body>
+
+<h1>My Photo Gallery</h1>
+
+<div class="gallery">
+  <img src="My%20Photo%20Gallery%20-%20Grid_files/491-400x300_W4wK.jpg" alt="Photo 1">
+  <img src="My%20Photo%20Gallery%20-%20Grid_files/611-400x300_W4wK.jpg" alt="Photo 2">
+  <img src="My%20Photo%20Gallery%20-%20Grid_files/268-400x300_W4wK.jpg" alt="Photo 3">
+  <img src="My%20Photo%20Gallery%20-%20Grid_files/257-400x300_W4wK.jpg" alt="Photo 4">
+  <img src="My%20Photo%20Gallery%20-%20Grid_files/689-400x300_W4wK.jpg" alt="Photo 5">
+  <img src="My%20Photo%20Gallery%20-%20Grid_files/280-400x300_W4wK.jpg" alt="Photo 6">
+</div>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>

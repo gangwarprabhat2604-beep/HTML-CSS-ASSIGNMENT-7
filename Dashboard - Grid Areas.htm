@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Dashboard - Grid Areas</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+  body{height:100vh}
+  .dashboard{
+    display:grid;
+    height:100vh;
+    grid-template-columns:220px 1fr;
+    grid-template-rows:60px 1fr 50px;
+    grid-template-areas:
+      "header header"
+      "sidebar main"
+      "footer footer";
+    gap:10px;
+    padding:10px;
+    background:#e6efff;
+  }
+  .header{grid-area:header;background:#0b2e6e;color:white;display:flex;align-items:center;justify-content:space-between;padding:0 20px;border-radius:10px}
+  .sidebar{grid-area:sidebar;background:white;padding:20px;border-radius:10px}
+  .sidebar p{padding:10px 0;border-bottom:1px solid #eee;cursor:pointer}
+  .main{grid-area:main;background:white;padding:20px;border-radius:10px}
+  .cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:15px;margin-top:15px}
+  .card{background:#e6efff;padding:20px;border-radius:10px;text-align:center}
+  .card h2{color:#0b2e6e}
+  .footer{grid-area:footer;background:#0b2e6e;color:white;display:flex;align-items:center;justify-content:center;border-radius:10px}
+</style>
+</head>
+<body>
+  <div class="dashboard">
+    <div class="header">
+      <b>Bright Future Dashboard</b>
+      <span>Hi, Deepika 👋</span>
+    </div>
+    <div class="sidebar">
+      <h3>Menu</h3>
+      <p>🏠 Dashboard</p>
+      <p>📚 Courses</p>
+      <p>👩‍🎓 Students</p>
+      <p>📝 Assignments</p>
+      <p>⚙️ Settings</p>
+    </div>
+    <div class="main">
+      <h2>Welcome Back, Prabhat!</h2>
+      <p>Here is your overview for today.</p>
+      <div class="cards">
+        <div class="card"><h2>12</h2><p>Total Courses</p></div>
+        <div class="card"><h2>150</h2><p>Students</p></div>
+        <div class="card"><h2>8</h2><p>Assignments</p></div>
+      </div>
+    </div>
+    <div class="footer">© 2026 Bright Future Academy</div>
+  </div>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>
